@@ -1,0 +1,65 @@
+🚀 GITHUB DEPLOYMENT - STEP BY STEP GUIDE
+
+═══════════════════════════════════════════════════════
+
+⚠️  FIRST: CREATE GITHUB REPOSITORY
+
+1. 🌐 Go to: https://github.com/new
+
+2. 📝 Repository Details:
+   ├── Repository name: claimbot
+   ├── Description: ClaimBot - AI Insurance Assistant
+   ├── Visibility: Public ✅
+   ├── Initialize with README: ❌ (Don't check)
+   └── Add .gitignore: ❌ (Don't check)
+
+3. 🔨 Click "Create repository"
+
+═══════════════════════════════════════════════════════
+
+⚡ THEN RUN THESE COMMANDS:
+
+```bash
+# Your code is already committed and ready!
+# Just need to push to the new repository:
+
+git remote set-url origin https://github.com/ABHISHEK-DBZ/claimbot.git
+git push -u origin main
+```
+
+═══════════════════════════════════════════════════════
+
+🌐 ENABLE GITHUB PAGES:
+
+1. 📂 Go to your repository: https://github.com/ABHISHEK-DBZ/claimbot
+
+2. ⚙️  Settings > Pages (left sidebar)
+
+3. 🔧 Source: Deploy from a branch
+   ├── Branch: main
+   ├── Folder: / (root)
+   └── Save
+
+4. ✅ Wait 2-3 minutes
+
+5. 🎉 Your ClaimBot will be LIVE at:
+   https://ABHISHEK-DBZ.github.io/claimbot
+
+═══════════════════════════════════════════════════════
+
+📱 AFTER DEPLOYMENT:
+
+✅ Website: https://ABHISHEK-DBZ.github.io/claimbot
+✅ Mobile PWA: Install from browser
+✅ APK Download: Available on site
+✅ Auto-updates: Every time you push code
+
+═══════════════════════════════════════════════════════
+
+🔄 ALTERNATIVE: If you prefer Netlify (30 seconds):
+
+1. Go to: https://app.netlify.com/drop
+2. Drag your ClaimBot_Project folder
+3. INSTANT LIVE WEBSITE! 🚀
+
+Choose GitHub for permanent hosting or Netlify for quick demo!
