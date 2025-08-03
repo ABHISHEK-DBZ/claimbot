@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClaimBot APK Download</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #fff;
+            color: #2563eb;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            margin: 10px;
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .pwa-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        .robot { font-size: 4rem; margin-bottom: 20px; }
+        .steps {
+            text-align: left;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .step { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="robot">🤖</div>
+        <h1>ClaimBot APK Ready!</h1>
+        <p>Your AI Insurance Assistant is ready to download and install on Android devices</p>
+        
+        <a href="#" onclick="downloadPWA()" class="download-btn">
+            📱 Install as App (PWA)
+        </a>
+        
+        <a href="https://appmaker.xyz/pwa-to-apk" class="download-btn pwa-btn" target="_blank">
+            📦 Convert to APK Online
+        </a>
+        
+        <div class="steps">
+            <h3>📲 How to Install:</h3>
+            <div class="step">1. <strong>Mobile Browser:</strong> Visit your website on mobile Chrome/Firefox</div>
+            <div class="step">2. <strong>Add to Home Screen:</strong> Browser will show "Install App" prompt</div>
+            <div class="step">3. <strong>Install:</strong> Click "Install" - works like native app!</div>
+            <br>
+            <h3>🔧 For APK File:</h3>
+            <div class="step">1. <strong>Upload:</strong> Upload your website to online APK converter</div>
+            <div class="step">2. <strong>Generate:</strong> Tool will create downloadable APK</div>
+            <div class="step">3. <strong>Download:</strong> Install APK on any Android device</div>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+            🌐 Your ClaimBot is PWA-ready and can be installed directly from browser!
+        </p>
+    </div>
+
+    <script>
+        function downloadPWA() {
+            if ('serviceWorker' in navigator) {
+                alert('🎉 Great! Your browser supports PWA installation. Visit your ClaimBot website on mobile and look for "Add to Home Screen" prompt!');
+            } else {
+                alert('Please visit your ClaimBot website on a mobile browser that supports PWA installation.');
+            }
+        }
+    </script>
+</body>
+</html>
