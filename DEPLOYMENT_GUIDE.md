@@ -9,12 +9,12 @@ git init
 git add .
 git commit -m "Initial ClaimBot deployment"
 git branch -M main
-git remote add origin https://github.com/yourusername/claimbot.git
+git remote add origin https://github.com/ABHISHEK-DBZ/claimbot.git
 git push -u origin main
 
 # Step 2: Enable GitHub Pages
 # Go to Settings > Pages > Source: Deploy from branch > main
-# Your site will be live at: https://yourusername.github.io/claimbot
+# Your site will be live at: https://ABHISHEK-DBZ.github.io/claimbot
 ```
 
 ### 2. Netlify (Free Tier)
