@@ -73,6 +73,7 @@ def split_text_into_chunks(text: str, chunk_size: int = 1000, chunk_overlap: int
 try:
     # Try different PDF file names in your project
     pdf_files = [
+        "Arogya Sanjeevani Policy - CIN - U10200WB1906GOI001713 1.pdf",
         "your_policy_document.pdf",
         "Medical Insurance Policy for Existing Employees(1).pdf",
         "90ade7e39d5e481f9aeb772a19a30234.pdf"

@@ -18,17 +18,25 @@ const chatMessages = document.getElementById('chatMessages');
 const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
 
-// Sample responses for demo purposes
+// Sample responses for demo purposes - Updated with Arogya Sanjeevani info
 const responses = {
-    "health insurance": "Based on your health insurance policy, you're covered for:\n• Doctor visits with $20 copay\n• Emergency room visits\n• Prescription medications\n• Preventive care at 100%\n• Specialist visits with referral\n\nYour annual deductible is $1,500 and out-of-pocket maximum is $6,000.",
+    "arogya sanjeevani": "Arogya Sanjeevani Policy Information:\n• Standard health insurance product\n• Covers hospitalization expenses\n• Pre/Post hospitalization: 30/60 days\n• Day care treatments included\n• AYUSH treatments covered\n• Ambulance charges covered\n• CIN: U10200WB1906GOI001713\n\nWould you like specific claim process details?",
     
-    "claim": "To file a claim:\n1. Contact your provider or use our online portal\n2. Provide your policy number and incident details\n3. Submit required documentation\n4. Track your claim status online\n\nClaims are typically processed within 5-10 business days.",
+    "health insurance": "Based on your Arogya Sanjeevani policy, you're covered for:\n• Hospitalization expenses\n• Pre and post hospitalization (30/60 days)\n• Day care procedures\n• AYUSH treatments\n• Ambulance charges\n• Room rent as per policy\n• ICU charges\n\nFor specific coverage amounts, please check your policy document.",
     
-    "deductible": "Your current deductible amounts:\n• Health Insurance: $1,500 annually\n• Auto Insurance: $500 per incident\n• Home Insurance: $1,000 per claim\n\nDeductibles reset annually on your policy renewal date.",
+    "claim": "Arogya Sanjeevani Claim Process:\n1. Inform insurer within 24 hours of hospitalization\n2. Get pre-authorization for planned treatments\n3. Submit claim form with required documents\n4. Required docs: Hospital bills, discharge summary, diagnostic reports\n5. Claims processed within 30 days\n\nFor cashless treatment, visit network hospitals.",
     
-    "coverage": "Your current coverage includes:\n• Health: Comprehensive medical and dental\n• Auto: Full coverage with collision and comprehensive\n• Home: Dwelling, personal property, and liability\n• Life: $250,000 term life insurance\n\nWould you like details about any specific coverage?",
+    "coverage": "Arogya Sanjeevani Coverage Details:\n• Room rent: As per policy terms\n• ICU charges: Covered\n• Surgery and medical expenses: Covered\n• Diagnostic tests: Pre/during/post hospitalization\n• Ambulance: Up to policy limit\n• AYUSH treatments: Alternative medicine\n• Day care: Same day discharge procedures\n\nExclusions apply - check policy document.",
     
-    "default": "I understand you're asking about your insurance. Could you please be more specific? I can help with:\n• Policy coverage details\n• Claims process and status\n• Deductibles and premiums\n• Finding specific policy information\n• Explaining insurance terms"
+    "documents": "Required Documents for Claims:\n• Duly filled claim form\n• Original hospital bills and receipts\n• Discharge summary from hospital\n• Diagnostic and investigation reports\n• Doctor's certificates\n• Identity proof\n• Policy copy\n• Pre-authorization form (if applicable)\n\nSubmit within 30 days of discharge.",
+    
+    "exclusions": "Arogya Sanjeevani Exclusions:\n• Pre-existing diseases (waiting period applies)\n• Cosmetic/plastic surgery\n• Dental care (unless accidental)\n• Maternity expenses (unless optional cover)\n• Self-inflicted injuries\n• War and nuclear risks\n• Experimental treatments\n\nCheck policy document for complete exclusions list.",
+    
+    "network hospital": "Network Hospital Benefits:\n• Cashless treatment facility\n• Show health card at admission\n• No upfront payment required\n• Direct settlement with hospital\n• Pre-authorization may be required\n• Quality assured healthcare providers\n\nContact customer care for nearest network hospital list.",
+    
+    "waiting period": "Arogya Sanjeevani Waiting Periods:\n• Initial waiting period: 30 days\n• Pre-existing diseases: 24-48 months\n• Specific diseases: 12-24 months\n• Maternity: 9 months (if covered)\n\nEmergency treatments may have shorter waiting periods.",
+    
+    "default": "I'm your ClaimBot assistant for Arogya Sanjeevani Policy (CIN: U10200WB1906GOI001713). I can help with:\n• Policy coverage details\n• Claims process and documentation\n• Network hospitals\n• Exclusions and waiting periods\n• Premium and renewal information\n• Cashless vs reimbursement process\n\nWhat specific information do you need?"
 };
 
 // Function to add message to chat
