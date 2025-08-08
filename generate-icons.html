@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        .icon-preview { display: inline-block; margin: 10px; text-align: center; }
+        button { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🎨 ClaimBot Icon Generator</h1>
+    <p>Generating all required icon sizes from your SVG...</p>
+    
+    <div id="icons"></div>
+    <button onclick="downloadAll()">📥 Download All Icons</button>
+    
+    <script>
+        const svgContent = `<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  
+  <!-- Robot Body -->
+  <rect x="156" y="200" width="200" height="180" rx="20" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Robot Head -->
+  <rect x="186" y="120" width="140" height="120" rx="15" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Eyes -->
+  <circle cx="220" cy="160" r="12" fill="#2563eb"/>
+  <circle cx="292" cy="160" r="12" fill="#2563eb"/>
+  
+  <!-- Antenna -->
+  <line x1="256" y1="120" x2="256" y2="80" stroke="#ffffff" stroke-width="4" opacity="0.9"/>
+  <circle cx="256" cy="80" r="8" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Mouth -->
+  <rect x="230" y="190" width="52" height="6" rx="3" fill="#2563eb"/>
+  
+  <!-- Arms -->
+  <rect x="120" y="230" width="36" height="80" rx="18" fill="#ffffff" opacity="0.9"/>
+  <rect x="356" y="230" width="36" height="80" rx="18" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Legs -->
+  <rect x="180" y="380" width="30" height="60" rx="15" fill="#ffffff" opacity="0.9"/>
+  <rect x="302" y="380" width="30" height="60" rx="15" fill="#ffffff" opacity="0.9"/>
+  
+  <!-- Body Details -->
+  <circle cx="206" cy="250" r="6" fill="#2563eb"/>
+  <circle cx="256" cy="250" r="6" fill="#2563eb"/>
+  <circle cx="306" cy="250" r="6" fill="#2563eb"/>
+  
+  <!-- Text -->
+  <text x="256" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" opacity="0.8">ClaimBot</text>
+</svg>`;
+
+        const sizes = [72, 96, 128, 192, 512];
+        const iconsContainer = document.getElementById('icons');
+        
+        function generateIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            const img = new Image();
+            const svgBlob = new Blob([svgContent], {type: 'image/svg+xml;charset=utf-8'});
+            const url = URL.createObjectURL(svgBlob);
+            
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, size, size);
+                URL.revokeObjectURL(url);
+                
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'icon-preview';
+                iconDiv.innerHTML = `
+                    <canvas width="${size}" height="${size}" style="width:64px;height:64px;"></canvas>
+                    <br>${size}x${size}
+                    <br><a href="#" onclick="downloadIcon(${size})">Download</a>
+                `;
+                
+                const previewCanvas = iconDiv.querySelector('canvas');
+                const previewCtx = previewCanvas.getContext('2d');
+                previewCtx.drawImage(canvas, 0, 0, 64, 64);
+                
+                iconsContainer.appendChild(iconDiv);
+                
+                // Store canvas for download
+                window[`canvas${size}`] = canvas;
+            };
+            
+            img.src = url;
+        }
+        
+        function downloadIcon(size) {
+            const canvas = window[`canvas${size}`];
+            const link = document.createElement('a');
+            link.download = `icon-${size}x${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        function downloadAll() {
+            sizes.forEach(size => {
+                setTimeout(() => downloadIcon(size), size);
+            });
+        }
+        
+        // Generate all icons
+        sizes.forEach(generateIcon);
+    </script>
+</body>
+</html>
