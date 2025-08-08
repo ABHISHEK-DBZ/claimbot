@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create ClaimBot PNG Icons</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        canvas { border: 1px solid #ccc; margin: 10px; }
+        .download-section { margin: 20px 0; }
+        button { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🤖 ClaimBot PNG Icon Creator</h1>
+    <p>Creating proper PNG icons for PWA Builder APK generation...</p>
+    
+    <div class="download-section">
+        <h2>Required Icons:</h2>
+        <div id="icons-container"></div>
+        <button onclick="downloadAllIcons()">📥 Download All PNG Icons</button>
+    </div>
+
+    <script>
+        function createClaimBotIcon(size, isLarge = false) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // Draw background with rounded corners
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, size * 0.15);
+            ctx.fill();
+            
+            // Scale factor for different sizes
+            const scale = size / 512;
+            
+            // Robot body
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.beginPath();
+            ctx.roundRect(156 * scale, 200 * scale, 200 * scale, 180 * scale, 20 * scale);
+            ctx.fill();
+            
+            // Robot head
+            ctx.beginPath();
+            ctx.roundRect(186 * scale, 120 * scale, 140 * scale, 120 * scale, 15 * scale);
+            ctx.fill();
+            
+            // Eyes
+            ctx.fillStyle = '#2563eb';
+            ctx.beginPath();
+            ctx.arc(220 * scale, 160 * scale, 12 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(292 * scale, 160 * scale, 12 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Antenna
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.lineWidth = 4 * scale;
+            ctx.beginPath();
+            ctx.moveTo(256 * scale, 120 * scale);
+            ctx.lineTo(256 * scale, 80 * scale);
+            ctx.stroke();
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.beginPath();
+            ctx.arc(256 * scale, 80 * scale, 8 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Mouth
+            ctx.fillStyle = '#2563eb';
+            ctx.beginPath();
+            ctx.roundRect(230 * scale, 190 * scale, 52 * scale, 6 * scale, 3 * scale);
+            ctx.fill();
+            
+            // Arms
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.beginPath();
+            ctx.roundRect(120 * scale, 230 * scale, 36 * scale, 80 * scale, 18 * scale);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.roundRect(356 * scale, 230 * scale, 36 * scale, 80 * scale, 18 * scale);
+            ctx.fill();
+            
+            // Legs
+            ctx.beginPath();
+            ctx.roundRect(180 * scale, 380 * scale, 30 * scale, 60 * scale, 15 * scale);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.roundRect(302 * scale, 380 * scale, 30 * scale, 60 * scale, 15 * scale);
+            ctx.fill();
+            
+            // Body buttons
+            ctx.fillStyle = '#2563eb';
+            ctx.beginPath();
+            ctx.arc(206 * scale, 250 * scale, 6 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(256 * scale, 250 * scale, 6 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(306 * scale, 250 * scale, 6 * scale, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Text (only for larger icons)
+            if (isLarge) {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                ctx.font = `bold ${24 * scale}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.fillText('ClaimBot', 256 * scale, 480 * scale);
+            }
+            
+            return canvas;
+        }
+        
+        function createIconPreview(size, isLarge = false) {
+            const canvas = createClaimBotIcon(size, isLarge);
+            const container = document.getElementById('icons-container');
+            
+            const iconDiv = document.createElement('div');
+            iconDiv.style.display = 'inline-block';
+            iconDiv.style.margin = '10px';
+            iconDiv.style.textAlign = 'center';
+            
+            const previewCanvas = document.createElement('canvas');
+            previewCanvas.width = 100;
+            previewCanvas.height = 100;
+            previewCanvas.style.border = '1px solid #ccc';
+            
+            const previewCtx = previewCanvas.getContext('2d');
+            previewCtx.drawImage(canvas, 0, 0, 100, 100);
+            
+            iconDiv.innerHTML = `
+                <div>${size}x${size} PNG</div>
+                <button onclick="downloadIcon('${size}x${size}')">Download</button>
+            `;
+            iconDiv.insertBefore(previewCanvas, iconDiv.firstChild.nextSibling);
+            
+            container.appendChild(iconDiv);
+            
+            // Store canvas for download
+            window[`canvas${size}`] = canvas;
+        }
+        
+        function downloadIcon(sizeName) {
+            const size = sizeName.replace('x' + sizeName.split('x')[1], '');
+            const canvas = window[`canvas${size}`];
+            const link = document.createElement('a');
+            link.download = `claimbot-icon-${sizeName}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        function downloadAllIcons() {
+            [192, 512].forEach((size, index) => {
+                setTimeout(() => {
+                    const canvas = window[`canvas${size}`];
+                    const link = document.createElement('a');
+                    link.download = `claimbot-icon-${size}x${size}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }, index * 500);
+            });
+        }
+        
+        // Add roundRect polyfill for older browsers
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+        
+        // Create the required icons
+        createIconPreview(192, false);
+        createIconPreview(512, true);
+        
+        // Auto-download after 2 seconds
+        setTimeout(() => {
+            alert('Icons created! Click "Download All PNG Icons" to save them to your computer, then upload to your icons/ folder.');
+        }, 1000);
+    </script>
+</body>
+</html>
