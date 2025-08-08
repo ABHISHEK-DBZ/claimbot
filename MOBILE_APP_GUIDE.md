@@ -1,10 +1,18 @@
 # 📱 ClaimBot Mobile Apps - APK & iOS Download
 
-## 🚀 PWA Builder (Generate APK & iOS)
+## 🚀 PWA Builder (Generate APK & iOS) - UPDATED
 
-### Step 1: Upload to PWA Builder
-1. **PWA Builder**: https://www.pwabuilder.com (OPENED)
-2. **Enter URL**: https://ABHISHEK-DBZ.github.io/claimbot
+### Method 2: Vercel Deployment (ACTIVE NOW!)
+**Vercel Import Page**: https://vercel.com/new/git (OPENED)
+
+1. **Connect GitHub**: Authorize Vercel access
+2. **Select Repository**: `ABHISHEK-DBZ/claimbot`
+3. **Deploy**: Click "Deploy" button
+4. **Get Live URL**: `https://claimbot.vercel.app`
+
+### Step 1: After Vercel Deployment
+1. **PWA Builder**: https://www.pwabuilder.com
+2. **Enter URL**: `https://claimbot.vercel.app` (your new URL)
 3. **Generate APK**: Click "Package For Stores" → Android
 4. **Generate iOS**: Click "Package For Stores" → iOS
 
