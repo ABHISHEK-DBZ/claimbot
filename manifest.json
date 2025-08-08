@@ -1,17 +1,24 @@
 {
   "name": "ClaimBot - AI Insurance Assistant",
   "short_name": "ClaimBot",
-  "description": "Your AI-powered insurance assistant for instant policy help",
+  "description": "Your AI-powered insurance assistant for instant policy help and Arogya Sanjeevani claims",
   "version": "1.0.0",
   "manifest_version": 3,
+  "id": "claimbot-insurance-app",
   "start_url": "/index.html",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
   "theme_color": "#2563eb",
   "background_color": "#ffffff",
   "scope": "/",
-  "lang": "en",
-  "categories": ["finance", "productivity", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["finance", "productivity", "utilities", "medical"],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
   "icons": [
     {
       "src": "icons/icon-72x72.png",
@@ -65,13 +72,21 @@
   "screenshots": [
     {
       "src": "screenshots/mobile-screenshot-1.png",
-      "sizes": "320x640",
-      "type": "image/png"
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
     },
     {
       "src": "screenshots/mobile-screenshot-2.png",
-      "sizes": "320x640",
-      "type": "image/png"
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/desktop-screenshot-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ],
   "features": [
